@@ -9,20 +9,18 @@ class XylophoneApp extends StatelessWidget {
     player.play('note$n.wav');
   }
 
-  int createButtons() {
-    Expanded(
+  Expanded createButtons(Color color, int soundNumber) {
+    return Expanded(
       child: TextButton(
         style: TextButton.styleFrom(
           padding: EdgeInsets.all(0),
-          backgroundColor: Colors.red,
+          backgroundColor: color,
         ),
         onPressed: () {
-          playSound(1);
+          playSound(soundNumber);
         },
       ),
     );
-
-    return 0;
   }
 
   @override
@@ -35,16 +33,14 @@ class XylophoneApp extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              createButtons();
-              createButtons();
-              createButtons();
-              createButtons();
-              createButtons();
-              createButtons();
-              createButtons();
-
-
-      ],
+              createButtons(Colors.red, 1),
+              createButtons(Colors.orange, 2),
+              createButtons(Colors.pinkAccent, 3),
+              createButtons(Colors.deepOrangeAccent, 4),
+              createButtons(Colors.green, 5),
+              createButtons(Colors.teal, 6),
+              createButtons(Colors.lightBlueAccent, 7),
+            ],
           ),
         ),
       ),
